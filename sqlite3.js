@@ -78,5 +78,15 @@ db.get(`SELECT jobTitle FROM employees`, (err, jobs) => {
 });
 
 // Write a statement to query the database and console.log() each employees firstName, lastName and address only
+db.get(`SELECT firstName, lastName, address FROM employees`, (err, empData) => {
+    errorHandler(err);
+    console.log('employee data minus job title: ', empData);
+});
 
+// BONUS
 
+// Write a statement that returns all employees of a specified jobTitle
+db.get(`SELECT firstName, lastName, jobTitle FROM employees WHERE jobTitle = "Cashier"`, (err, specificJobs) => {
+    errorHandler(err);
+    console.log('employees with cashier job: ', specificJobs);
+});
